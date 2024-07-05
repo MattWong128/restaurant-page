@@ -7,11 +7,19 @@ module.exports = {
   output: {
     filename: "bundle.js",
     path: path.resolve(__dirname, "dist"),
+    clean: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, "/src/template.html"),
-      title: "Restaurauntxx",
+      template: path.join(__dirname, "/src/template.html"),
+      filename: "main.html",
+      title: "Restuarant",
     }),
   ],
+  devServer: {
+    static: {
+      directory: path.join(__dirname, "dist"),
+    },
+    hot: true,
+  },
 };
