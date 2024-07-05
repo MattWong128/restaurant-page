@@ -17,9 +17,17 @@ module.exports = {
     }),
   ],
   devServer: {
+    hot: true,
     static: {
       directory: path.join(__dirname, "dist"),
     },
-    hot: true,
+  },
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
+      },
+    ],
   },
 };
